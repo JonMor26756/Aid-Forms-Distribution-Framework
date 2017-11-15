@@ -1,0 +1,23 @@
+version: '2'
+services:
+ node001:
+  image: node:v1.0
+  build: ./node
+  container_name: node001
+  hostname: node001
+  env_file:
+   - node/node.env
+ node002:
+  image: node:v1.0
+  build: ./node
+  container_name: node002
+  hostname: node002
+  env_file:
+   - node/node.env
+ ssh-keygen:
+  image: ssh-keygen:v1.0
+  build: ./ssh-keygen
+  container_name: ssh-keygen
+  hostname: ssh-keygen
+  volumes:
+   - ./ssh-keygen/keys:/ssh-keys
